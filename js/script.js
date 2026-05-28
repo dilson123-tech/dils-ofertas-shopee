@@ -19,7 +19,7 @@ function ampliarImagem(img) {
 
 // === Catálogo dinâmico de produtos Shopee ===
 async function carregarProdutosShopee() {
-  const container = document.getElementById("lista-produtos-amazon");
+  const container = document.getElementById("lista-produtos-shopee");
 
   if (!container) {
     return;
@@ -59,27 +59,27 @@ async function carregarProdutosShopee() {
 
     const imagemHTML = imagem
       ? `
-        <a href="${link}" target="_blank" rel="noopener sponsored" class="imagem-amazon-link">
-          <img src="${imagem}" alt="${nome}" class="imagem-produto-amazon" loading="lazy">
+        <a href="${link}" target="_blank" rel="noopener sponsored" class="imagem-shopee-link">
+          <img src="${imagem}" alt="${nome}" class="imagem-produto-shopee" loading="lazy">
         </a>
       `
       : `
-        <div class="produto-icone-amazon" aria-hidden="true">
+        <div class="produto-icone-shopee" aria-hidden="true">
           <span>${icone}</span>
         </div>
       `;
 
     return `
-      <article class="card-amazon">
+      <article class="card-shopee">
         ${imagemHTML}
-        <span class="selo-amazon">${loja} • ${categoria}</span>
+        <span class="selo-shopee">${loja} • ${categoria}</span>
         <h3>${nome}</h3>
         <p>${descricao}</p>
         <a
           href="${link}"
           target="_blank"
           rel="noopener sponsored"
-          class="botao-amazon"
+          class="botao-shopee"
         >
           Ver oferta na Shopee
         </a>
@@ -119,13 +119,13 @@ async function carregarProdutosShopee() {
         const tituloCategoria = escaparHTML(categoria);
 
         return `
-          <section class="categoria-amazon">
-            <div class="cabecalho-categoria-amazon">
+          <section class="categoria-shopee">
+            <div class="cabecalho-categoria-shopee">
               <h3>${tituloCategoria}</h3>
               <span>${itens.length} produto${itens.length > 1 ? "s" : ""}</span>
             </div>
 
-            <div class="grid-amazon">
+            <div class="grid-shopee">
               ${itens.map(criarCardProduto).join("")}
             </div>
           </section>

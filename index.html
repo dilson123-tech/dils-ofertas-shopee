@@ -4,173 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dils Ofertas Shopee</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-
-
-  <!-- NO HEAD -->
-<style>
-
-  </style>
-  <style>
-
-</style>
-
-
 </head>
 <body>
-
-
-
-
-
-
   <header>
-  <h1>🛍️ Dils Ofertas Shopee</h1>
-  <p>Achadinhos e produtos recomendados da Shopee, organizados por categoria.</p>
+    <h1>🛍️ Dils Ofertas Shopee</h1>
+    <p>Achadinhos e produtos recomendados da Shopee, organizados por categoria.</p>
 
+    <nav class="menu-principal">
+      <a href="#inicio">Início</a> |
+      <a href="#shopee">Ofertas Shopee</a> |
+      <a href="#aviso">Transparência</a>
+    </nav>
+  </header>
 
-  <nav class="menu-principal">
-    <a href="#inicio">Início</a> |
-    <a href="#amazon">Ofertas Shopee</a> |
-    <a href="#amazon">Casa e Cozinha</a> |
-    <a href="#amazon">Beleza</a> |
-    <a href="#amazon">Eletrônicos</a> |
-    <a href="#amazon">Home Office</a> |
-    <a href="#amazon">Ferramentas</a>
-  </nav>
+  <main>
+    <section class="hero-dils-ofertas" id="inicio">
+      <div class="hero-conteudo">
+        <span class="hero-selo">🔥 Vitrine inteligente Shopee</span>
 
-</header>
+        <h2>Achadinhos selecionados para comprar melhor</h2>
 
+        <p>
+          Produtos úteis da Shopee, organizados por categoria, com links oficiais de afiliado.
+          Preços e disponibilidade podem mudar conforme a plataforma.
+        </p>
 
-<div class="topo-anuncio">
-</div>
+        <div class="hero-tags">
+          <span>Ferramentas</span>
+          <span>Casa</span>
+          <span>Utilidades</span>
+          <span>Achadinhos</span>
+        </div>
 
+        <a href="#shopee" class="hero-botao">Ver ofertas Shopee</a>
+      </div>
 
-<section class="hero-dils-ofertas" id="inicio">
-  <div class="hero-conteudo">
-    <span class="hero-selo">🔥 Vitrine inteligente Shopee</span>
+      <div class="hero-animacao" aria-hidden="true">
+        <div class="hero-card card-1">🧰 Produtos úteis</div>
+        <div class="hero-card card-2">📦 Links oficiais</div>
+        <div class="hero-card card-3">💡 Achadinhos do dia</div>
+        <div class="hero-card card-4">🛒 Ofertas atualizadas</div>
+      </div>
+    </section>
 
-    <h2>Achadinhos selecionados para comprar melhor</h2>
+    <section id="shopee" class="ofertas-shopee">
+      <h2>🔥 Ofertas Shopee</h2>
+      <p class="subtitulo-shopee">
+        Produtos selecionados com link de afiliado Shopee. O preço pode mudar conforme disponibilidade da Shopee.
+      </p>
 
-    <p>
-      Produtos organizados por categoria, com links oficiais de afiliado Shopee:
-      casa, beleza, eletrônicos, ferramentas, informática e utilidades para o dia a dia.
-    </p>
+      <div id="lista-produtos-shopee" class="categorias-shopee" aria-live="polite">
+        <p class="carregando-produtos">Carregando ofertas Shopee...</p>
+      </div>
 
-    <div class="hero-tags">
-      <span>Casa e Cozinha</span>
-      <span>Beleza</span>
-      <span>Eletrônicos</span>
-      <span>Ferramentas</span>
-      <span>Home Office</span>
-    </div>
+      <noscript>
+        <p>Ative o JavaScript para visualizar as ofertas Shopee.</p>
+      </noscript>
+    </section>
 
-    <a href="#amazon" class="hero-botao">Ver ofertas Shopee</a>
-  </div>
+    <section class="aviso-afiliado" id="aviso">
+      <p>
+        Transparência: este site participa do programa de afiliados da Shopee.
+        Podemos receber comissão por compras realizadas através dos links divulgados,
+        sem custo adicional para você.
+      </p>
+    </section>
+  </main>
 
-  <div class="hero-animacao" aria-hidden="true">
-    <div class="hero-card card-1">🛒 Ofertas atualizadas</div>
-    <div class="hero-card card-2">⚡ Produtos úteis</div>
-    <div class="hero-card card-3">🎯 Links oficiais</div>
-    <div class="hero-card card-4">💡 Achadinhos do dia</div>
-  </div>
-</section>
+  <footer>
+    <p>© 2026 Dils Ofertas Shopee. Todos os direitos reservados.</p>
+  </footer>
 
-<section id="amazon" class="ofertas-amazon">
-  <h2>🔥 Ofertas Shopee</h2>
-  <p class="subtitulo-amazon">
-    Produtos selecionados com link de afiliado Shopee. O preço pode mudar conforme disponibilidade da Shopee.
-  </p>
-
-  <div id="lista-produtos-amazon" class="categorias-amazon" aria-live="polite">
-    <p class="carregando-produtos">Carregando ofertas Shopee...</p>
-  </div>
-  <noscript>
-    <p>Ative o JavaScript para visualizar as ofertas Shopee.</p>
-  </noscript>
-</section>
-
-
-<section class="limpeza-ofertas-antigas">
-  <h2>Ofertas atualizadas em destaque</h2>
-  <p>
-    Estamos renovando nossa vitrine com produtos selecionados e links atualizados.
-    Confira acima as ofertas Shopee organizadas por categoria.
-  </p>
-</section>
-
-
-<section class="limpeza-ofertas-antigas">
-  <h2>Vitrine atualizada</h2>
-  <p>
-    As ofertas antigas foram removidas. Agora o Dils Ofertas Shopee prioriza produtos atualizados,
-    organizados por categoria e com links oficiais de afiliado.
-  </p>
-</section>
-
-<footer>
-  <p>📲 Siga o Dils Ofertas Shopee nas redes sociais:</p>
-  <p>
-    <a href="#" target="_blank">Instagram 📸</a> |
-    <a href="#" target="_blank">TikTok 🎵</a>
-  </p>
-
-<p class="aviso-afiliado">
-  Transparência: este site participa de programas de afiliados. Podemos receber comissão por compras realizadas através dos links divulgados, sem custo adicional para você.
-</p>
-<p>© 2025 Dils Ofertas Shopee. Todos os direitos reservados.</p>
-
-</footer>
-
-
-<!-- APENAS 1 SCRIPT PARA TROCAR A IMAGEM CORRETAMENTE -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.galeria-vip').forEach(galeria => {
-      const imagemPrincipal = galeria.querySelector('.imagem-destaque');
-      const miniaturas = galeria.querySelectorAll('.imagens-pequenas img');
-
-      miniaturas.forEach(mini => {
-        mini.addEventListener('click', () => {
-          imagemPrincipal.src = mini.src;
-          imagemPrincipal.alt = mini.alt;
-        });
-      });
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.galeria-vip').forEach(galeria => {
-    const imagemPrincipal = galeria.querySelector('.imagem-destaque');
-    const miniaturas = galeria.querySelectorAll('.imagens-pequenas img');
-
-    miniaturas.forEach(mini => {
-      mini.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        imagemPrincipal.classList.add('fade-out');
-
-        setTimeout(() => {
-          imagemPrincipal.src = mini.src;
-          imagemPrincipal.alt = mini.alt;
-          imagemPrincipal.classList.remove('fade-out');
-        }, 200); // espera a imagem "sumir" antes de trocar
-      });
-    });
-  });
-});
-
-
-
-
-<!-- Coloque isso bem aqui, antes de fechar o body -->
-</script>
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
-
 </html>
