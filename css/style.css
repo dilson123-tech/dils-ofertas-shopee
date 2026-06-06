@@ -1188,3 +1188,158 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
 }
+
+/* === Ajuste geral compacto da vitrine Shopee === */
+body {
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 18px 12px 14px;
+}
+
+header h1 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.menu-principal a {
+  font-size: 0.9rem;
+}
+
+.hero-dils-ofertas {
+  max-width: 1080px;
+  margin: 22px auto;
+  padding: 24px 22px;
+}
+
+.hero-dils-ofertas h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+}
+
+.hero-dils-ofertas p {
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.hero-tags span {
+  font-size: 0.78rem;
+  padding: 7px 10px;
+}
+
+.hero-botao {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+}
+
+.hero-card {
+  min-width: 180px;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+}
+
+.ofertas-shopee {
+  max-width: 1080px;
+  margin: 22px auto;
+  padding: 20px 14px;
+}
+
+.ofertas-shopee h2 {
+  font-size: 1.7rem;
+}
+
+.subtitulo-shopee {
+  font-size: 0.92rem;
+}
+
+.categoria-shopee {
+  padding: 14px;
+}
+
+.cabecalho-categoria-shopee {
+  padding: 10px 12px;
+}
+
+.cabecalho-categoria-shopee h3 {
+  font-size: 1.15rem;
+}
+
+.cabecalho-categoria-shopee span {
+  font-size: 0.78rem;
+  padding: 5px 9px;
+}
+
+.grid-shopee {
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 12px;
+}
+
+.card-shopee {
+  min-height: 205px;
+  padding: 12px;
+}
+
+.produto-icone-shopee {
+  height: 54px;
+  margin-bottom: 9px;
+}
+
+.produto-icone-shopee span,
+.produto-icone-shopee {
+  font-size: 1.7rem;
+}
+
+.selo-shopee {
+  font-size: 0.7rem;
+  padding: 5px 8px;
+  margin-bottom: 8px;
+}
+
+.card-shopee h3 {
+  font-size: 0.92rem;
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+
+.card-shopee p {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.botao-shopee {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+
+.aviso-afiliado {
+  max-width: 900px;
+  padding: 14px 18px;
+  font-size: 0.85rem;
+}
+
+footer {
+  font-size: 0.85rem;
+  padding: 12px;
+}
+
+@media (max-width: 760px) {
+  .hero-dils-ofertas {
+    margin: 14px 10px;
+    padding: 18px 14px;
+  }
+
+  .grid-shopee {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .card-shopee {
+    min-height: 190px;
+  }
+}
