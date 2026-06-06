@@ -1,23 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Dils Ofertas está no ar!");
-});
-
-function ampliarImagem(img) {
-  const modal = document.createElement("img");
-  modal.src = img.src;
-  modal.classList.add("modal-img");
-  modal.onclick = () => modal.remove();
-  document.body.appendChild(modal);
-}
-
-
-
-//function trocarImagem(src) {
-  //document.getElementById("imagem-principal").src = src;
-//}
-
-
-// === Catálogo dinâmico de produtos Shopee ===
 async function carregarProdutosShopee() {
   const container = document.getElementById("lista-produtos-shopee");
 
@@ -34,52 +14,44 @@ async function carregarProdutosShopee() {
       .replaceAll("'", "&#039;");
   }
 
-  function obterIconeCategoria(categoria) {
-    const nome = String(categoria || "").toLowerCase();
+  function iconeProduto(produto) {
+    const texto = `${produto.nome || ""} ${produto.descricao || ""} ${produto.categoria || ""}`.toLowerCase();
 
-    if (nome.includes("cozinha") || nome.includes("casa")) return "🍳";
-    if (nome.includes("beleza")) return "✨";
-    if (nome.includes("eletr")) return "🎧";
-    if (nome.includes("inform")) return "💻";
-    if (nome.includes("ferrament")) return "🧰";
-    if (nome.includes("achadinho")) return "💡";
+    if (texto.includes("manta") || texto.includes("cerâmica") || texto.includes("ceramica") || texto.includes("temperatura")) return "🔥";
+    if (texto.includes("microfibra") || texto.includes("limpeza") || texto.includes("pano")) return "🧽";
+    if (texto.includes("toalha") || texto.includes("banho") || texto.includes("rosto") || texto.includes("banheiro")) return "🧺";
+    if (texto.includes("edredom") || texto.includes("cobre-leito") || texto.includes("cobre leito") || texto.includes("fronha")) return "🛌";
+    if (texto.includes("lençol") || texto.includes("lencol") || texto.includes("colchão") || texto.includes("colchao") || texto.includes("protetor") || texto.includes("cama")) return "🛏️";
+    if (texto.includes("ferrament") || texto.includes("alicate") || texto.includes("chave") || texto.includes("furadeira")) return "🧰";
 
     return "🛒";
   }
 
-  function criarCardProduto(produto) {
-    const categoriaOriginal = produto.categoria || "Oferta";
-    const categoria = escaparHTML(categoriaOriginal);
-    const icone = escaparHTML(obterIconeCategoria(categoriaOriginal));
+  function criarCard(produto) {
+    const categoria = escaparHTML(produto.categoria || "Oferta");
     const loja = escaparHTML(produto.loja || "Shopee");
-    const nome = escaparHTML(produto.nome);
-    const descricao = escaparHTML(produto.descricao);
-    const link = escaparHTML(produto.link);
-    const imagem = escaparHTML(produto.imagem || "");
-
-    const imagemHTML = imagem
-      ? `
-        <a href="${link}" target="_blank" rel="noopener sponsored" class="imagem-shopee-link">
-          <img src="${imagem}" alt="${nome}" class="imagem-produto-shopee" loading="lazy">
-        </a>
-      `
-      : `
-        <div class="produto-icone-shopee" aria-hidden="true">
-          <span>${icone}</span>
-        </div>
-      `;
+    const nome = escaparHTML(produto.nome || "Produto Shopee");
+    const descricao = escaparHTML(produto.descricao || "Produto selecionado com link de afiliado Shopee.");
+    const link = escaparHTML(produto.link || "#");
+    const icone = escaparHTML(produto.icone || iconeProduto(produto));
 
     return `
       <article class="card-shopee">
-        ${imagemHTML}
+        <div class="produto-icone-shopee" aria-hidden="true">
+          <span>${icone}</span>
+        </div>
+
         <span class="selo-shopee">${loja} • ${categoria}</span>
+
         <h3>${nome}</h3>
+
         <p>${descricao}</p>
+
         <a
+          class="botao-shopee"
           href="${link}"
           target="_blank"
           rel="noopener sponsored"
-          class="botao-shopee"
         >
           Ver oferta na Shopee
         </a>
@@ -88,7 +60,7 @@ async function carregarProdutosShopee() {
   }
 
   try {
-    const resposta = await fetch("data/produtos-shopee.json", {
+    const resposta = await fetch("data/produtos-shopee.json?v=icones2", {
       cache: "no-store",
     });
 
@@ -103,34 +75,26 @@ async function carregarProdutosShopee() {
       return;
     }
 
-    const produtosPorCategoria = produtos.reduce((grupos, produto) => {
+    const grupos = produtos.reduce((acc, produto) => {
       const categoria = produto.categoria || "Outras Ofertas";
-
-      if (!grupos[categoria]) {
-        grupos[categoria] = [];
-      }
-
-      grupos[categoria].push(produto);
-      return grupos;
+      acc[categoria] = acc[categoria] || [];
+      acc[categoria].push(produto);
+      return acc;
     }, {});
 
-    container.innerHTML = Object.entries(produtosPorCategoria)
-      .map(([categoria, itens]) => {
-        const tituloCategoria = escaparHTML(categoria);
+    container.innerHTML = Object.entries(grupos)
+      .map(([categoria, itens]) => `
+        <section class="categoria-shopee">
+          <div class="cabecalho-categoria-shopee">
+            <h3>${escaparHTML(categoria)}</h3>
+            <span>${itens.length} produto${itens.length > 1 ? "s" : ""}</span>
+          </div>
 
-        return `
-          <section class="categoria-shopee">
-            <div class="cabecalho-categoria-shopee">
-              <h3>${tituloCategoria}</h3>
-              <span>${itens.length} produto${itens.length > 1 ? "s" : ""}</span>
-            </div>
-
-            <div class="grid-shopee">
-              ${itens.map(criarCardProduto).join("")}
-            </div>
-          </section>
-        `;
-      })
+          <div class="grid-shopee">
+            ${itens.map(criarCard).join("")}
+          </div>
+        </section>
+      `)
       .join("");
   } catch (erro) {
     console.error("Erro ao carregar produtos Shopee:", erro);

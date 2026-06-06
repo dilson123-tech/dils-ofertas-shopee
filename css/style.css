@@ -1343,3 +1343,14 @@ footer {
     min-height: 190px;
   }
 }
+
+/* === Ajuste: ícones maiores sem aumentar demais os cards === */
+.produto-icone-shopee {
+  height: 78px;
+  margin-bottom: 10px;
+}
+
+.produto-icone-shopee span {
+  font-size: 2.8rem;
+  line-height: 1;
+}
